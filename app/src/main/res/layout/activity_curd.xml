@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="5dp"
+    android:orientation="vertical"
+    tools:context=".CRUD_Activity">
+
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="36sp"
+        android:padding="16dp"
+        android:textColor="@color/white"
+        android:textAlignment="center"
+        android:background="@drawable/text_view_design"
+        android:text="@string/make_notes" />
+
+    <EditText
+        android:id="@+id/title_et"
+       android:layout_marginTop="50dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/edit_txt_design"
+        android:layout_height="wrap_content"
+       android:layout_marginHorizontal="20dp"
+        android:hint="@string/enter_title"
+        android:textAlignment="center"
+        android:padding="24dp"
+        android:ems="10"
+        android:inputType="text"
+        android:importantForAutofill="no" />
+
+    <EditText
+        android:id="@+id/content_et"
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:background="@drawable/edit_txt_design"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:paddingTop="20dp"
+        android:paddingHorizontal="20dp"
+        android:layout_marginEnd="20dp"
+        android:hint="@string/your_note"
+        android:paddingBottom="200dp"
+        android:ems="10"
+        android:inputType="text"
+        android:autofillHints="Listen me" />
+
+
+     <LinearLayout
+         android:layout_marginTop="30dp"
+      android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+    <Button
+        android:id="@+id/btn_insert"
+        android:textAlignment="center"
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textStyle="italic"
+        android:textColor="@color/white"
+        android:layout_marginHorizontal="12dp"
+        android:background="@drawable/button_design_1"
+        android:layout_height="wrap_content"
+        android:text="@string/insert"
+        style="?android:attr/buttonBarButtonStyle" />
+         <Button
+             android:id="@+id/btn_search"
+             android:textAlignment="center"
+         android:layout_marginHorizontal="12dp"
+             android:textStyle="italic"
+             android:layout_width="0dp"
+             android:layout_weight="1"
+             android:textColor="@color/white"
+             android:background="@drawable/button_design_1"
+             android:layout_height="wrap_content"
+             android:text="@string/search"
+         style="?android:attr/buttonBarButtonStyle" />
+
+
+
+</LinearLayout>
+
+    <LinearLayout
+        android:layout_marginTop="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <Button
+            android:id="@+id/btn_update"
+            android:textAlignment="center"
+            android:layout_marginHorizontal="12dp"
+            android:textStyle="italic"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textColor="@color/white"
+            android:background="@drawable/button_design_1"
+            android:layout_height="wrap_content"
+            android:text="@string/update"
+            style="?android:attr/buttonBarButtonStyle" />
+        <Button
+            android:id="@+id/btn_delete"
+            android:textAlignment="center"
+            android:layout_width="0dp"
+            android:layout_weight="1"
+            android:textStyle="italic"
+            android:textColor="@color/white"
+            android:layout_marginHorizontal="12dp"
+            android:background="@drawable/button_design_1"
+            android:layout_height="wrap_content"
+            android:text="@string/delete"
+            style="?android:attr/buttonBarButtonStyle" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/back"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:clickable="true"
+        android:text="Back"
+        android:textAllCaps="true"
+        android:textColor="@color/btn_color"
+        android:focusable="true"
+        android:textSize="16sp"
+        android:textStyle="bold" />
+    <View
+        android:layout_width="44dp"
+        android:layout_height="2dp"
+        android:layout_gravity="center"
+        android:background="@color/btn_color"
+     />
+
+
+</LinearLayout>

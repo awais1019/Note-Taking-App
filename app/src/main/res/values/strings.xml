@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">NoteTakingAppOne</string>
+    <string name="app_title">Note Me</string>
+    <string name="new_text">New</string>
+    <string name="update_text">Update</string>
+    <string name="delete_text">Delete</string>
+    <string name="make_notes">Make Notes</string>
+    <string name="title">Title</string>
+    <string name="enter_title">Enter Title</string>
+    <string name="insert">Insert</string>
+    <string name="back">Back</string>
+    <string name="your_note">Your Note</string>
+    <string name="delete">DELETE</string>
+    <string name="update">UPDATE</string>
+    <string name="search">search</string>
+    <string name="create">Create</string>
+</resources>
