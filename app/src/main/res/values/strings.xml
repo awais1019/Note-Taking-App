@@ -14,4 +14,6 @@
     <string name="update">UPDATE</string>
     <string name="search">search</string>
     <string name="create">Create</string>
+    <string name="note_title">Note Title</string>
+    <string name="note_content_goes_here_this_is_a_sample_note">Note content goes here. This is a sample note.</string>
 </resources>

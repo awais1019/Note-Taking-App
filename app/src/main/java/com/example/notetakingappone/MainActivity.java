@@ -1,6 +1,7 @@
 package com.example.notetakingappone;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -22,9 +23,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         recyclerView=findViewById(R.id.recyclerView1);
         create_txt=findViewById(R.id.create);
+
         notes = new ArrayList<>();
         DBsqlite dBsqlite=new DBsqlite(MainActivity.this);
-        ArrayList<Note> notes = dBsqlite.getdata();
+        notes = dBsqlite.getdata();
         RvAdaptor adaptor = new RvAdaptor(MainActivity.this, notes);
         recyclerView.setLayoutManager(new LinearLayoutManager(MainActivity.this));
         recyclerView.setAdapter(adaptor);

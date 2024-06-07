@@ -48,7 +48,7 @@ public class DBsqlite extends SQLiteOpenHelper {
        Cursor cursor= db.rawQuery("select * from "+TABLE_NAME,null);
        while(cursor.moveToNext())
        {
-           Note notes=new Note(cursor.getString(1),cursor.getString(2));
+           Note notes=new Note(cursor.getString(0),cursor.getString(1));
            notelist.add(notes);
        }
        return notelist;
