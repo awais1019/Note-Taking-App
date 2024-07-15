@@ -18,7 +18,6 @@ import com.example.notetakingappone.databinding.ActivityMainBinding;
 
 public class CRUD_Activity extends AppCompatActivity {
     private ActivityCurdBinding binding;
-    EditText title, content;
 
     DBsqlite dBsqlite;
 
@@ -30,100 +29,110 @@ public class CRUD_Activity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         binding=ActivityCurdBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
-        title = findViewById(R.id.title_et);
-        content = findViewById(R.id.content_et);
 
         dBsqlite = new DBsqlite(CRUD_Activity.this);
         binding.btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
                 searchNote();
-
             }
         });
         binding.btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String title_var = binding.titleEt.getText().toString();
-                String content_var = binding.contentEt.getText().toString();
-                if (title_var.isEmpty()) {
-                    Toast.makeText(CRUD_Activity.this, "Please provide Title", Toast.LENGTH_SHORT).show();
-                } else if (content_var.isEmpty()) {
-                    Toast.makeText(CRUD_Activity.this, "Please provide any note", Toast.LENGTH_SHORT).show();
-                } else {
-
-                    if (dBsqlite.Insertdata(title_var, content_var)) {
-                        Toast.makeText(CRUD_Activity.this, "Note Added Successfully", Toast.LENGTH_SHORT).show();
-
-
-                        clearFields();
-
-                    } else {
-                        Toast.makeText(CRUD_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
-                    }
-
-
-                }
+                insertData();
             }
         });
         binding.btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(CRUD_Activity.this);
-                builder.setTitle("Update");
-                builder.setMessage("Are you want to Update Notes ");
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        boolean successfully = dBsqlite.Updatedata(title.getText().toString(), content.getText().toString());
-                        if (successfully) {
-                            Toast.makeText(CRUD_Activity.this, "Notes Updated Successfully", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(CRUD_Activity.this, "Something went Wrong", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                builder.create();
-                builder.show();
 
+                updateData();
             }
         });
         binding.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                AlertDialog.Builder builder = new AlertDialog.Builder(CRUD_Activity.this);
-                builder.setTitle("Delete");
-                builder.setMessage("Are you want to delete Notes ");
-                builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        boolean successfully = dBsqlite.deletedata(title.getText().toString());
-                        if (successfully) {
-                            Toast.makeText(CRUD_Activity.this, "Notes delete Successfully", Toast.LENGTH_SHORT).show();
-                        } else {
-                            Toast.makeText(CRUD_Activity.this, "Something went Wrong", Toast.LENGTH_SHORT).show();
-                        }
-                    }
-                });
-                builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which) {
-                        dialog.dismiss();
-                    }
-                });
-                builder.create();
-                builder.show();
+                 deleteData();
             }
         });
     }
 
+    private void deleteData() {
+        AlertDialog.Builder builder = new AlertDialog.Builder(CRUD_Activity.this);
+        builder.setTitle("Delete");
+        builder.setMessage("Are you want to delete Notes ");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean successfully = dBsqlite.deletedata(binding.titleEt.getText().toString());
+                if (successfully) {
+                    Toast.makeText(CRUD_Activity.this, "Notes delete Successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(CRUD_Activity.this, "Something went Wrong", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.create();
+        builder.show();
+    }
+
+    private void updateData() {
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(CRUD_Activity.this);
+        builder.setTitle("Update");
+        builder.setMessage("Are you want to Update Notes ");
+        builder.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                boolean successfully = dBsqlite.Updatedata(binding.titleEt.getText().toString(), binding.contentEt.getText().toString());
+                if (successfully) {
+                    Toast.makeText(CRUD_Activity.this, "Notes Updated Successfully", Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(CRUD_Activity.this, "Something went Wrong", Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+        builder.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                dialog.dismiss();
+            }
+        });
+        builder.create();
+        builder.show();
+
+    }
+
+
+    private void insertData() {
+        String title_var = binding.titleEt.getText().toString();
+        String content_var = binding.contentEt.getText().toString();
+        if (title_var.isEmpty()) {
+            Toast.makeText(CRUD_Activity.this, "Please provide Title", Toast.LENGTH_SHORT).show();
+        } else if (content_var.isEmpty()) {
+            Toast.makeText(CRUD_Activity.this, "Please provide any note", Toast.LENGTH_SHORT).show();
+        } else {
+
+            if (dBsqlite.Insertdata(title_var, content_var)) {
+                Toast.makeText(CRUD_Activity.this, "Note Added Successfully", Toast.LENGTH_SHORT).show();
+
+
+                clearFields();
+
+            } else {
+                Toast.makeText(CRUD_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
+            }
+
+
+        }
+    }
 
 
     public void clearFields() {
@@ -132,11 +141,11 @@ public class CRUD_Activity extends AppCompatActivity {
     }
     public void searchNote()
     {
-        String search_title = title.getText().toString();
+        String search_title = binding.titleEt.getText().toString();
         if (!search_title.isEmpty()) {
             String data = dBsqlite.searchNote(search_title);
             if (data != null) {
-                content.setText(data);
+                binding.contentEt.setText(data);
             } else {
                 Toast.makeText(CRUD_Activity.this, "N0 Note Found", Toast.LENGTH_SHORT).show();
             }
