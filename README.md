@@ -19,7 +19,7 @@ To run this app on your local machine, follow these steps:
 
 1. **Clone the repository:**
     ```sh
-    git clone https://github.com/yourusername/note-taking-app.git
+    git clone (https://github.com/awais1019/Note-Taking-App.git)
     ```
     
 2. **Open the project in Android Studio:**
@@ -37,7 +37,7 @@ To run this app on your local machine, follow these steps:
 
 ## Screenshots
 ![Home Screen](Screenshots/HomePage.jpg)
-![Curd Screen](screenshots/CurdPage.jpg)
+![Curd Screen](Screenshots/CurdPage.jpg)
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
