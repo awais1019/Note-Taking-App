@@ -36,8 +36,10 @@ To run this app on your local machine, follow these steps:
     - Click "Run" > "Run 'app'" or press `Shift+F10`.
 
 ## Screenshots
-![Home Screen](Screenshots/HomePage.jpg)
-![Curd Screen](Screenshots/CurdPage.jpg)
+
+<img src="Screenshots/HomePage.jpg" alt="Home Screen" width="300"/>
+<img src="Screenshots/CurdPage.jpg" alt="Curd Screen" width="300"/>
+
 
 ## Contributing
 Contributions are welcome! Please open an issue or submit a pull request.
