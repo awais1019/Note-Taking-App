@@ -38,8 +38,8 @@ To run this app on your local machine, follow these steps:
 ## Screenshots
 
 <div style="display: flex;">
-  <img src="Screenshots/HomePage.jpg" alt="Home Screen" width="400" height="500" style="margin-right: 100px;"/>
-  <img src="Screenshots/CurdPage.jpg" alt="Curd Screen" width="400" height="500"/>
+  <img src="Screenshots/HomePage.jpg" alt="Home Screen" width="300" height="550" style="margin-right: 100px;"/>
+  <img src="Screenshots/CurdPage.jpg" alt="Curd Screen" width="300" height="550"/>
 </div>
 
 
