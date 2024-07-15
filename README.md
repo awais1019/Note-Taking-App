@@ -37,8 +37,11 @@ To run this app on your local machine, follow these steps:
 
 ## Screenshots
 
-<img src="Screenshots/HomePage.jpg" alt="Home Screen" width="300"/>
-<img src="Screenshots/CurdPage.jpg" alt="Curd Screen" width="300"/>
+<div style="display: flex;">
+  <img src="Screenshots/HomePage.jpg" alt="Home Screen" width="300" height="200" style="margin-right: 10px;"/>
+  <img src="Screenshots/CurdPage.jpg" alt="Curd Screen" width="300" height="200"/>
+</div>
+
 
 
 ## Contributing
