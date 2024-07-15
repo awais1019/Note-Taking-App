@@ -13,11 +13,13 @@ import android.widget.EditText;
 import android.widget.TextView;
 import android.widget.Toast;
 
-public class CRUD_Activity extends AppCompatActivity {
+import com.example.notetakingappone.databinding.ActivityCurdBinding;
+import com.example.notetakingappone.databinding.ActivityMainBinding;
 
+public class CRUD_Activity extends AppCompatActivity {
+    private ActivityCurdBinding binding;
     EditText title, content;
-    TextView back;
-    Button insert, delete, search, update;
+
     DBsqlite dBsqlite;
 
     Note note;
@@ -26,35 +28,25 @@ public class CRUD_Activity extends AppCompatActivity {
 
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_curd);
+        binding=ActivityCurdBinding.inflate(getLayoutInflater());
+        setContentView(binding.getRoot());
         title = findViewById(R.id.title_et);
         content = findViewById(R.id.content_et);
-        insert = findViewById(R.id.btn_insert);
-        search = findViewById(R.id.btn_search);
-        delete = findViewById(R.id.btn_delete);
-        update = findViewById(R.id.btn_update);
-        back = findViewById(R.id.back);
-        back.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(CRUD_Activity.this, MainActivity.class);
-                startActivity(intent);
-            }
-        });
+
         dBsqlite = new DBsqlite(CRUD_Activity.this);
-        search.setOnClickListener(new View.OnClickListener() {
+        binding.btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                searchnote();
+                searchNote();
 
             }
         });
-        insert.setOnClickListener(new View.OnClickListener() {
+        binding.btnInsert.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                String title_var = title.getText().toString();
-                String content_var = content.getText().toString();
+                String title_var = binding.titleEt.getText().toString();
+                String content_var = binding.contentEt.getText().toString();
                 if (title_var.isEmpty()) {
                     Toast.makeText(CRUD_Activity.this, "Please provide Title", Toast.LENGTH_SHORT).show();
                 } else if (content_var.isEmpty()) {
@@ -62,10 +54,10 @@ public class CRUD_Activity extends AppCompatActivity {
                 } else {
 
                     if (dBsqlite.Insertdata(title_var, content_var)) {
-                        Toast.makeText(CRUD_Activity.this, "Note Added Succesfully", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(CRUD_Activity.this, "Note Added Successfully", Toast.LENGTH_SHORT).show();
 
 
-                        clearfields();
+                        clearFields();
 
                     } else {
                         Toast.makeText(CRUD_Activity.this, "Something went wrong", Toast.LENGTH_SHORT).show();
@@ -75,7 +67,7 @@ public class CRUD_Activity extends AppCompatActivity {
                 }
             }
         });
-        update.setOnClickListener(new View.OnClickListener() {
+        binding.btnUpdate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(CRUD_Activity.this);
@@ -103,7 +95,7 @@ public class CRUD_Activity extends AppCompatActivity {
 
             }
         });
-        delete.setOnClickListener(new View.OnClickListener() {
+        binding.btnDelete.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 AlertDialog.Builder builder = new AlertDialog.Builder(CRUD_Activity.this);
@@ -134,11 +126,11 @@ public class CRUD_Activity extends AppCompatActivity {
 
 
 
-    public void clearfields() {
-        title.setText("");
-        content.setText("");
+    public void clearFields() {
+        binding.titleEt.setText("");
+        binding.contentEt.setText("");
     }
-    public void searchnote()
+    public void searchNote()
     {
         String search_title = title.getText().toString();
         if (!search_title.isEmpty()) {
