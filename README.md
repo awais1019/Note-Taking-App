@@ -19,7 +19,7 @@ To run this app on your local machine, follow these steps:
 
 1. **Clone the repository:**
     ```sh
-    git clone (https://github.com/awais1019/Note-Taking-App.git)
+    git clone https://github.com/awais1019/Note-Taking-App.git
     ```
     
 2. **Open the project in Android Studio:**
@@ -38,8 +38,8 @@ To run this app on your local machine, follow these steps:
 ## Screenshots
 
 <div style="display: flex;">
-  <img src="Screenshots/HomePage.jpg" alt="Home Screen" width="300" height="200" style="margin-right: 10px;"/>
-  <img src="Screenshots/CurdPage.jpg" alt="Curd Screen" width="300" height="200"/>
+  <img src="Screenshots/HomePage.jpg" alt="Home Screen" width="300" height="500" style="margin-right: 10px;"/>
+  <img src="Screenshots/CurdPage.jpg" alt="Curd Screen" width="300" height="500"/>
 </div>
 
 
